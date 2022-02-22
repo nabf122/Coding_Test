@@ -13,7 +13,41 @@ class Solution {
 	Scanner scan = new Scanner(System.in);
 	
     public int[] solution(int[] array, int[][] commands) {
-        int[] answer = {};
+    	int[] answer = new int[MAX_CMD];
+        int[] arr1 = {};
+        
+        int a = 0;
+        int b = 0;
+        int c = 0;
+        
+        /*
+         * array {5, 4, 3, 7, 9}
+         * commands {1, 3, 2}
+         * 
+         * a = 1
+         * b = 3
+         *
+         *  
+         *
+         *  -> 5, 4, 3
+         * c = 2
+         *  -> return 4 ;
+         */
+        for(int i = 0; i < MAX_CMD; i++) {
+        	a = commands[i][0];
+        	b = commands[i][1];
+        	c = commands[i][2];
+        	int z = 0;
+        	
+        	arr1 = new int[b];
+        	
+        	for(int j = a; j < b+1; j++) {
+        		arr1[z] = array[j];
+        		z++;
+        	}
+        	answer[i] = arr1[c-1];
+        }
+        
         return answer;
     }
     
@@ -35,6 +69,8 @@ class Solution {
         	}
     	}else
     		System.out.println("잘못된 입력 값");
+    	
+    	System.out.println();
     }
     
     public void insertCmd() {
